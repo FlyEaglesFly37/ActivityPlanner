@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="site.js"></script>
+    <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous">
+    </script>
+    <title>Activity Planner</title>
+</head>
+<body>
+    <h1 id="main">Welcome to PlanIt</h1>
+    <div class="register">
+        <h3>Register</h3>
+        @model ValidateUser
+        <form asp-action="Register" asp-controller="Home" method="post">
+            <span asp-validation-for="first_name"></span>
+            <input asp-for="first_name" placeholder="First Name">
+
+            <span asp-validation-for="last_name"></span>
+            <input asp-for="last_name" placeholder="Last Name">
+
+            <span asp-validation-for="email"></span>
+            <input asp-for="email" placeholder="Email">
+
+            <span asp-validation-for="password"></span> 
+            <input asp-for="password" placeholder="Password">
+
+            <span asp-validation-for="confirm_pw"></span>
+            <input asp-for="confirm_pw" placeholder="Confirm Password">
+            <input type="hidden" name="balance" value="0">
+            <button>Submit</button>
+        </form>
+    </div>
+    <div class="login">
+        <h3>Sign In</h3>
+        <form asp-action="Login" asp-controller="Home" method="post">
+            <span>@ViewBag.error</span>
+            <input asp-for="email" placeholder="Email">
+            <input asp-for="password" placeholder="Password">
+            <button>Login</button>
+            <a>Need to sign up?</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Dojo Activity Center</h1>
+        <a href="/home">Home</a>
+        <a href="/logout">Logout</a>
+        <hr>
+    </div>
+    @model Todo
+    <div>
+        <h3>@Model.title</h3>
+        <p>Time & Date: @Model.time on @Model.date.ToString("MM/dd/yyyy")</p>
+        <p>Event Coordinator: @ViewBag.x</p>
+        <p>Description: @Model.description</p>
+        <p>Participants: 
+            <ul>
+                @{
+                    foreach(var guest in @Model.Guests){
+                        <li>@guest.user.first_name</li>
+                    }
+                }
+            </ul>
+        </p>
+        <div>
+            @{
+                bool joined = false;
+                if(@ViewBag.userId == @Model.UserId){
+                    <button action="/delete/@Model.ActivityId">Delete</button>
+                }
+                else{
+                    foreach(var guest in @Model.Guests){
+                        if(@guest.user.UserId == @ViewBag.userId){
+                            joined = true;
+                        }
+                    }
+                    if(joined == true){
+                        <td><a href="/unjoin/@Model.ActivityId">Leave</a></td>
+                    }
+                    else{
+                        <td><a href="/join/@Model.ActivityId">Join</a></td>
+                    }
+                }
+            }
+        </div>
+    </div>
+</body>
+</html>

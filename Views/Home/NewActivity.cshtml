@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Activity</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Dojo Activity Center</h1>
+        <a href="/home">Home</a>
+        <a href="/logout">Logout</a>
+        <hr>
+    </div>
+    <div>
+        <h3>Create an Activity!</h3>
+        @model Todo
+        <form asp-action="Post" method="post">
+            <span asp-validation-for="title"></span>
+            <p>Title <input asp-for="title"></p>
+            <span asp-validation-for="time"></span>
+            <p>Time <input asp-for="time" min="1:00" max="12:00" required></p>
+            <p>@ViewBag.dateError</p>
+            <p>Date <input asp-for="date" type="date"></p>
+            <span asp-validation-for="duration"></span>
+            <p>Duration <input asp-for="duration"></p>
+            <select asp-for="duration_type">
+                <option value="Days">Days</option>
+                <option value="Hours">Hours</option>
+                <option value="Minutes">Minutes</option>
+            </select>
+            <span asp-validation-for="description"></span>
+            <p>Description <textarea asp-for="description"></textarea></p>
+            <button>Create Activity</button>
+        </form>
+    </div>
+</body>
+</html>

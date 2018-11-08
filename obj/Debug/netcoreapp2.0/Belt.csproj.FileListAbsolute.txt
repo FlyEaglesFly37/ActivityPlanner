@@ -1,0 +1,10 @@
+C:\Users\austi_000\Documents\CodingDojo\C#\ORM\Belt\bin\Debug\netcoreapp2.0\Belt.deps.json
+C:\Users\austi_000\Documents\CodingDojo\C#\ORM\Belt\bin\Debug\netcoreapp2.0\Belt.runtimeconfig.json
+C:\Users\austi_000\Documents\CodingDojo\C#\ORM\Belt\bin\Debug\netcoreapp2.0\Belt.runtimeconfig.dev.json
+C:\Users\austi_000\Documents\CodingDojo\C#\ORM\Belt\bin\Debug\netcoreapp2.0\Belt.dll
+C:\Users\austi_000\Documents\CodingDojo\C#\ORM\Belt\bin\Debug\netcoreapp2.0\Belt.pdb
+C:\Users\austi_000\Documents\CodingDojo\C#\ORM\Belt\obj\Debug\netcoreapp2.0\Belt.csproj.CoreCompileInputs.cache
+C:\Users\austi_000\Documents\CodingDojo\C#\ORM\Belt\obj\Debug\netcoreapp2.0\Belt.AssemblyInfoInputs.cache
+C:\Users\austi_000\Documents\CodingDojo\C#\ORM\Belt\obj\Debug\netcoreapp2.0\Belt.AssemblyInfo.cs
+C:\Users\austi_000\Documents\CodingDojo\C#\ORM\Belt\obj\Debug\netcoreapp2.0\Belt.dll
+C:\Users\austi_000\Documents\CodingDojo\C#\ORM\Belt\obj\Debug\netcoreapp2.0\Belt.pdb

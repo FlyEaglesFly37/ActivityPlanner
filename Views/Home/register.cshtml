@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="register">
+        <h3>Register</h3>
+        @model ValidateUser
+        <form asp-action="Register" asp-controller="Home" method="post">
+            <span asp-validation-for="first_name"></span>
+            <input asp-for="first_name" placeholder="First Name">
+
+            <span asp-validation-for="last_name"></span>
+            <input asp-for="last_name" placeholder="Last Name">
+
+            <span asp-validation-for="email"></span>
+            <input asp-for="email" placeholder="Email">
+
+            <span asp-validation-for="password"></span> 
+            <input asp-for="password" placeholder="Password">
+
+            <span asp-validation-for="confirm_pw"></span>
+            <input asp-for="confirm_pw" placeholder="Confirm Password">
+            <input type="hidden" name="balance" value="0">
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>

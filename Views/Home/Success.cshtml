@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Dojo Activity Center</h1>
+        <p>Welcome @ViewBag.name.first_name!</p>
+        <a href="/logout">Logout</a>
+        <hr>
+    </div>
+    @model List<Todo>
+    <table border="1">
+        <thead>
+            <td>Activity</td>
+            <td>Date and Time</td>
+            <td>Duration</td>
+            <td># of Participants</td>
+            <td>Actions</td>
+        </thead>
+        @{
+            foreach(var x in @Model){
+                bool joined = false;
+                <tr>
+                    <td><a href="/activity/@x.ActivityId">@x.title</a></td>
+                    <td>@x.date.ToString("MM/dd/yyyy") at @x.time</td>
+                    <td>@x.duration @x.duration_type</td>
+                    <td>@x.Guests.Count</td>
+                    @{
+                        if(@ViewBag.userId == @x.UserId){
+                            <td><a href="/delete/@x.ActivityId">Delete</a></td>
+                            continue;
+                        }
+                        foreach(var guest in @x.Guests){
+                            if(@guest.user.UserId == @ViewBag.userId){
+                                joined = true;
+                            }
+                        }
+                        if(joined == true){
+                            <td><a href="/unjoin/@x.ActivityId">Leave</a></td>
+                        }
+                        else{
+                            <td><a href="/join/@x.ActivityId">Join</a></td>
+                        }
+                    }
+                </tr>
+            }
+        }
+    </table>
+    <form action="/new">
+        <button>Add New Activity</button>
+    </form>
+</body>
+</html>
